@@ -25,6 +25,8 @@ public class UniqueEffort extends Robot
             ahead(100);
             turnGunRight(360);
             turnRight(90);
+            turnGunLeft(360);
+            turnLeft(90);
 
 		}
 	}
