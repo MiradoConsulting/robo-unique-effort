@@ -37,12 +37,12 @@ public class UniqueEffort extends Robot
 	public void onScannedRobot(ScannedRobotEvent e) {
 	    if (getGunHeat() != 0) {
             back(100);
-            return
+            return;
         }
 
 		// Replace the next line with any behavior you would like
 		if (e.getDistance() < 100 && getEnergy() > 50) {
-           fire(3);
+            fire(3);
         } else {
             fire(1);
         }
