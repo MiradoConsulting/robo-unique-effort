@@ -26,6 +26,7 @@ public class UniqueEffort extends Robot
 			turnGunRight(360);
 			back(100);
 			turnGunRight(360);
+
 		}
 	}
 
@@ -50,6 +51,10 @@ public class UniqueEffort extends Robot
 	 */
 	public void onHitWall(HitWallEvent e) {
 		// Replace the next line with any behavior you would like
-		back(20);
+        if (e.getBearing() > -90 && e.getBearing() <= 90) {
+            back(100);
+        } else {
+            ahead(100);
+        }
 	}
 }
