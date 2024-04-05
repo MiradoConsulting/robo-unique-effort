@@ -22,10 +22,9 @@ public class UniqueEffort extends Robot
 		// Robot main loop
 		while(true) {
 			// Replace the next 4 lines with any behavior you would like
-			ahead(100);
-			turnGunRight(360);
-			back(100);
-			turnGunRight(360);
+            ahead(100);
+            turnGunRight(360);
+            turnRight(90);
 
 		}
 	}
@@ -35,7 +34,11 @@ public class UniqueEffort extends Robot
 	 */
 	public void onScannedRobot(ScannedRobotEvent e) {
 		// Replace the next line with any behavior you would like
-		fire(1);
+		if (e.getDistance() < 100 && getEnergy() > 50) {
+           fire(3);
+        } else {
+            fire(1);
+        }
 	}
 
 	/**
@@ -43,7 +46,8 @@ public class UniqueEffort extends Robot
 	 */
 	public void onHitByBullet(HitByBulletEvent e) {
 		// Replace the next line with any behavior you would like
-		back(50);
+        turnRight(90 - e.getBearing());
+        ahead(100);
 	}
 
 	/**
@@ -51,10 +55,7 @@ public class UniqueEffort extends Robot
 	 */
 	public void onHitWall(HitWallEvent e) {
 		// Replace the next line with any behavior you would like
-        if (e.getBearing() > -90 && e.getBearing() <= 90) {
-            back(100);
-        } else {
-            ahead(100);
-        }
+        back(100);
+        turnRight(90);
 	}
 }
