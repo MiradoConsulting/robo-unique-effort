@@ -33,6 +33,11 @@ public class UniqueEffort extends Robot
 	 * onScannedRobot: What to do when you see another robot
 	 */
 	public void onScannedRobot(ScannedRobotEvent e) {
+	    if (getGunHeat() != 0) {
+            back(100);
+            return
+        }
+
 		// Replace the next line with any behavior you would like
 		if (e.getDistance() < 100 && getEnergy() > 50) {
            fire(3);
